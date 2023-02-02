@@ -92,10 +92,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 
         
-<?php include("../template/header.php"); ?>
-<?php include("../template/auth_nav.php") ?>
+<?php include("../templates/header.php"); ?>
+<?php include("../templates/auth_nav.php") ?>
 
-<section class="container grey-text">
+<section class="container white-text">
     <h2 class="center">Se connecter</h2>
     <p class="center red-text">
         <?php 
@@ -122,4 +122,4 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         </div>
     </form>
 </section>
-<?php include("../template/footer.php"); ?>
+<?php include("../templates/footer.php"); ?>

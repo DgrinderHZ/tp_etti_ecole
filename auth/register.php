@@ -85,8 +85,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 ?>
  
 
-<?php include("../template/header.php"); ?>
-<?php include("../template/auth_nav.php") ?>
+<?php include("../templates/header.php"); ?>
+<?php include("../templates/auth_nav.php") ?>
 
 <section class="container grey-text">
     <h2 class="center">Creer compte</h2>
@@ -112,6 +112,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         </div>
     </form>
 </section>
-<?php include("../template/footer.php"); ?>
+<?php include("../templates/footer.php"); ?>
 
                 

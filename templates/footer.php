@@ -1,6 +1,6 @@
-  
-</body>
-<footer class="section">
-    <div class="center white-text">&copy; Copyrights 2022-2023 Ecole ETTI</div>
+  </main>
+  <footer class="section white z-depth-0">
+    <div class="center purple-text">&copy; Copyrights 2022-2023 Ecole ETTI</div>
 </footer>
+</body>
 </html>
