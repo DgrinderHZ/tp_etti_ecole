@@ -2,6 +2,22 @@
 // Include config file
 require_once('../config/db_connect.php');
 
+// recuperer les type d'utilistateur
+
+// enregistrer la requete dans une variable
+$sql = 'SELECT * FROM type_user';
+
+// executer la requetes
+$results = mysqli_query($conn, $sql);
+
+// Transformer en un tableau associative
+$type_users = mysqli_fetch_all($results, MYSQLI_ASSOC);
+// Liberer les resultats
+mysqli_free_result($results);
+
+
+
+
 // Define variables and initialize with empty values
 $username = $password = $confirm_password = "";
 $username_err = $password_err = $confirm_password_err = "";
@@ -56,16 +72,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
         
         // Prepare an insert statement
-        $sql = "INSERT INTO user (username, password) VALUES (?, ?)";
+        $sql = "INSERT INTO user (username, password, id_type) VALUES (?, ?, ?)";
          
         if($stmt = mysqli_prepare($conn, $sql)){
             // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "ss", $param_username, $param_password);
+            mysqli_stmt_bind_param($stmt, "ssi", $param_username, $param_password , $id_type);
             
             // Set parameters
             $param_username = $username;
             $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
-            
+            $id_type = $_POST["id_type_user"];
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
                 // Redirect to login page
@@ -105,6 +121,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <label for="confirm_password">Repeter Mot de passe:</label>
             <input type="password" name="confirm_password" id="confirm_password" value="<?php echo $confirm_password; ?>">
             <div class="red-text"><?php echo $confirm_password_err; ?></div>
+        </div>
+        <div class="input-field">
+            <lable>Choose your option</label>
+            <?php foreach($type_users as $type): ?>
+            <p>
+            <label>
+                <input name="id_type_user" type="radio" checked value="<?php echo $type['id'];?>"/>
+                <span class="grey-text"><?php echo $type['titre'];?></span>
+            </label>
+            </p>
+            <?php endforeach; ?>
         </div>
         <div class="center">
             <input type="submit" value="Submit" name="Submit" class="btn brand z-depth-0">

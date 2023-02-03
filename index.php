@@ -1,5 +1,7 @@
 <?php require_once("templates/header.php"); ?>
-<?php require_once("templates/main_nav.php"); ?>
+<?php require_once("templates/main_nav.php"); 
+
+?>
 
     hi 
     

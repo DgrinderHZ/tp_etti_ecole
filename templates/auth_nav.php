@@ -9,6 +9,8 @@
             <li class="white-text">
                  
                 <?php 
+                // Initialize the session
+session_start();
                 // Check if the user is logged in, otherwise redirect to login page
                 if(!empty($_SESSION) && (isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] === true)): 
                  echo 'Hi, '. $_SESSION["username"];
