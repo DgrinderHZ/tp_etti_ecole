@@ -5,7 +5,7 @@ require_once('../config/db_connect.php');
 // recuperer les type d'utilistateur
 
 // enregistrer la requete dans une variable
-$sql = 'SELECT * FROM type_user';
+$sql = 'SELECT * FROM types_user';
 
 // executer la requetes
 $results = mysqli_query($conn, $sql);
