@@ -15,19 +15,19 @@ CREATE TABLE users(
     password VARCHAR(255) NOT NULL,
     id_type Integer,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (id_type) REFERENCES type_user(id)
+    FOREIGN KEY (id_type) REFERENCES types_user(id)
 );
 
 CREATE TABLE formateurs(
     id Integer NOT null PRIMARY KEY,
     id_user Integer,
-    FOREIGN KEY (id_user) REFERENCES user(id)
+    FOREIGN KEY (id_user) REFERENCES users(id)
 );
 
 CREATE TABLE etudiants(
     id Integer NOT null PRIMARY KEY,
     id_user Integer,
-    FOREIGN KEY (id_user) REFERENCES user(id)
+    FOREIGN KEY (id_user) REFERENCES users(id)
 );
 
 CREATE TABLE formations(
