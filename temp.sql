@@ -1,11 +1,11 @@
 CREATE SCHEMA ecole_db;
 
-CREATE TABLE type_user(
+CREATE TABLE types_user(
     id Integer NOT null PRIMARY KEY,
     titre varchar(30) not null
 );
 
-CREATE TABLE user(
+CREATE TABLE users(
     id Integer NOT null PRIMARY KEY,
     username VARCHAR(50) NOT NULL UNIQUE,
     nom VARCHAR(25),
@@ -72,6 +72,6 @@ CREATE TABLE passers(
     PRIMARY KEY (id_etudiant, id_module, id_examen),
     FOREIGN KEY (id_etudiant) REFERENCES etudiants(id),
     FOREIGN KEY (id_module) REFERENCES modules(id),
-    FOREIGN KEY (id_examen) REFERENCES examens(id),
+    FOREIGN KEY (id_examen) REFERENCES examens(id)
 );
 
