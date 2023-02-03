@@ -75,3 +75,6 @@ CREATE TABLE passers(
     FOREIGN KEY (id_examen) REFERENCES examens(id)
 );
 
+
+INSERT INTO `types_user`(`id`, `titre`) VALUES (0,'Etudiant');
+INSERT INTO `types_user`(`id`, `titre`) VALUES (1,'Formateur');
