@@ -1,12 +1,12 @@
 CREATE SCHEMA ecole_db;
 
 CREATE TABLE types_user(
-    id Integer NOT null PRIMARY KEY,
+    id Integer NOT null PRIMARY KEY AUTO_INCREMENT,
     titre varchar(30) not null
 );
 
 CREATE TABLE users(
-    id Integer NOT null PRIMARY KEY,
+    id Integer NOT null PRIMARY KEY AUTO_INCREMENT,
     username VARCHAR(50) NOT NULL UNIQUE,
     nom VARCHAR(25),
     prenom VARCHAR(25),
@@ -19,33 +19,33 @@ CREATE TABLE users(
 );
 
 CREATE TABLE formateurs(
-    id Integer NOT null PRIMARY KEY,
+    id Integer NOT null PRIMARY KEY AUTO_INCREMENT,
     id_user Integer,
     FOREIGN KEY (id_user) REFERENCES users(id)
 );
 
 CREATE TABLE etudiants(
-    id Integer NOT null PRIMARY KEY,
+    id Integer NOT null PRIMARY KEY AUTO_INCREMENT,
     id_user Integer,
     FOREIGN KEY (id_user) REFERENCES users(id)
 );
 
 CREATE TABLE formations(
-    id Integer NOT null PRIMARY KEY,
+    id Integer NOT null PRIMARY KEY AUTO_INCREMENT,
     code VARCHAR(4) not null UNIQUE,
     titre varchar(150) not null,
     descrption varchar(500) not null
 );
 
 CREATE TABLE modules(
-    id Integer NOT null PRIMARY KEY,
+    id Integer NOT null PRIMARY KEY AUTO_INCREMENT,
     code VARCHAR(4) not null UNIQUE,
     titre varchar(150) not null,
     descrption varchar(500) not null
 );
 
 CREATE TABLE examens(
-    id Integer NOT null PRIMARY KEY,
+    id Integer NOT null PRIMARY KEY AUTO_INCREMENT,
     titre varchar(150) not null
 );
 
