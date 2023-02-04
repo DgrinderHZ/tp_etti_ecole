@@ -33,7 +33,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     } else{
         // Prepare a select statement
         $un = trim($_POST["username"]);
-        $sql = "SELECT id FROM user WHERE username = '$un'";
+        $sql = "SELECT id FROM users WHERE username = '$un'";
         
         
             /* store result */
@@ -72,7 +72,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
         
         // Prepare an insert statement
-        $sql = "INSERT INTO user (username, password, id_type) VALUES (?, ?, ?)";
+        $sql = "INSERT INTO users (username, password, id_type) VALUES (?, ?, ?)";
          
         if($stmt = mysqli_prepare($conn, $sql)){
             // Bind variables to the prepared statement as parameters
