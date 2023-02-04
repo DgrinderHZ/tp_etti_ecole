@@ -1,5 +1,7 @@
 CREATE SCHEMA ecole_db;
 
+use ecole_db;
+
 CREATE TABLE types_user(
     id Integer NOT null PRIMARY KEY AUTO_INCREMENT,
     titre varchar(30) not null
@@ -76,5 +78,5 @@ CREATE TABLE passers(
 );
 
 
-INSERT INTO `types_user`(`id`, `titre`) VALUES (0,'Etudiant');
-INSERT INTO `types_user`(`id`, `titre`) VALUES (1,'Formateur');
+INSERT INTO `types_user`(`id`, `titre`) VALUES (1,'Etudiant');
+INSERT INTO `types_user`(`id`, `titre`) VALUES (2,'Formateur');
