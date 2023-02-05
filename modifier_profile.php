@@ -25,8 +25,11 @@ if(isset($_POST["submit"])){
         $errors['nom'] = "Le nom ne doit pas etre vide!";
     }else{
         $nom = $_POST["nom"];
+        $taille = strlen($nom);
         if(!preg_match("/^[a-zA-Z-' ]*$/",$nom)){
             $errors['nom'] = "Veuillez utiliser des lettres et des espaces!";
+        }elseif($taille < 2 || $taille > 25 ){
+            $errors['nom'] = "Le nom doit etre de taille >= 2 et <= 25!";
         }
     }
 }
