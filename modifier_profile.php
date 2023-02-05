@@ -2,7 +2,7 @@
 <?php require_once("templates/main_nav.php");?>
 
 <section class="container white-text">
-    <h1 class="center">Modifier votre informations du profile</h1>
+    <h1 class="center">Modifier vos informations du profile</h1>
     <form action="" class="white">
         <div>
             <label for="nom">Nom</label>
@@ -21,7 +21,7 @@
             <input type="text" id="tel" name="tel">
         </div>
         <div class="center">
-            <input type="submit" value="Modifier" class="btn brand z-depth-0">
+            <input type="submit" value="Modifier" name="submit" class="btn brand z-depth-0">
         </div>
     </form>
 </section>
