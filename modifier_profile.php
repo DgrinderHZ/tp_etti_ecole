@@ -1,6 +1,9 @@
+<?php // insertion des pages templates ?>
 <?php require_once("templates/header.php"); ?>
 <?php require_once("templates/main_nav.php");?>
 
+
+<!-- SECTION FORMULAIRE -->
 <section class="container white-text">
     <h1 class="center">Modifier vos informations du profile</h1>
     <form action="" class="white">
@@ -25,5 +28,6 @@
         </div>
     </form>
 </section>
-    
+
+<?php // insertion des pages templates ?>
 <?php require_once("templates/footer.php"); ?>
