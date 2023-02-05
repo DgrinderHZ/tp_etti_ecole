@@ -71,6 +71,15 @@ if(isset($_POST["submit"])){
     }
 }
 ?>
+<!--  
+-- Qu'est-ce que la fonction htmlspecialchars() ?
+La fonction htmlspecialchars() convertit les caractères
+spéciaux en entités HTML. Cela signifie qu'il remplacera
+les caractères HTML tels que < et > par < et >. 
+Cela empêche les attaquants d'exploiter le code en injectant
+du code HTML ou Javascript (attaques de type Cross-site Scripting XSS)
+dans les formulaires.
+ -->
 
 <!-- SECTION FORMULAIRE -->
 <section class="container white-text">
@@ -78,7 +87,7 @@ if(isset($_POST["submit"])){
     <form action="modifier_profile.php" class="white" method="POST">
         <div>
             <label for="nom">Nom</label>
-            <input type="text" id="nom" name="nom" value="<?php echo $nom;?>">
+            <input type="text" id="nom" name="nom" value="<?php echo htmlspecialchars($nom);?>">
             <div class="red-text"> <?php echo $errors['nom']; ?></div>
         </div>
         <div>
