@@ -18,7 +18,12 @@ $tel = '';
 
 // Validation, Gestion d'erreur, et sauvegarde des données
 if(isset($_POST["submit"])){
-    
+    //var_dump($_POST); // utile pour voir les information saisie
+
+    // Validation de champ 'nom'
+    if(empty($_POST["nom"])){
+        $errors['nom'] = "Le nom ne doit pas etre vide!";
+    }
 }
 ?>
 
@@ -29,6 +34,7 @@ if(isset($_POST["submit"])){
         <div>
             <label for="nom">Nom</label>
             <input type="text" id="nom" name="nom">
+            <div class="red-text"> <?php echo $errors['nom']; ?></div>
         </div>
         <div>
             <label for="prenom">prenom</label>
