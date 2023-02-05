@@ -86,6 +86,9 @@ if(isset($_POST["submit"])){
         if (!mysqli_query($conn, $sql)) {
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
+
+        // redirection to la page d'accueil
+        header('Location: index.php');
     }
 }
 ?>
