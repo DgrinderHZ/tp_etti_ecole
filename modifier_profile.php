@@ -23,6 +23,11 @@ if(isset($_POST["submit"])){
     // Validation de champ 'nom'
     if(empty($_POST["nom"])){
         $errors['nom'] = "Le nom ne doit pas etre vide!";
+    }else{
+        $nom = $_POST["nom"];
+        if(!preg_match("/^[a-zA-Z-' ]*$/",$nom)){
+            $errors['nom'] = "Veuillez utiliser des lettres et des espaces!";
+        }
     }
 }
 ?>
