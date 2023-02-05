@@ -69,6 +69,12 @@ if(isset($_POST["submit"])){
             $errors['tel'] = "le format du N° de telephone n'est pas valide!";
         }
     }
+
+    if (!array_filter($errors)) {
+        // array_filter($errors) retourne true s'il y a des erreurs
+        // retourne false s'il n'y a pas des erreurs
+        var_dump($errors);
+    }
 }
 ?>
 <!--  
