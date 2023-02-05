@@ -1,9 +1,9 @@
 <?php require_once("templates/header.php"); ?>
 <?php require_once("templates/main_nav.php");?>
 
-<section>
-    <h1>Modifier votre informations du profile</h1>
-    <form action="">
+<section class="container white-text">
+    <h1 class="center">Modifier votre informations du profile</h1>
+    <form action="" class="white">
         <div>
             <label for="nom">Nom</label>
             <input type="text" id="nom" name="nom">
@@ -20,8 +20,8 @@
             <label for="tel">N° tele</label>
             <input type="text" id="tel" name="tel">
         </div>
-        <div>
-            <input type="submit" value="Modifier">
+        <div class="center">
+            <input type="submit" value="Modifier" class="btn brand z-depth-0">
         </div>
     </form>
 </section>
