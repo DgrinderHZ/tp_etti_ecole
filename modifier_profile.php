@@ -45,6 +45,21 @@ if(isset($_POST["submit"])){
             $errors['prenom'] = "Le prenom doit etre de taille >= 2 et <= 25!";
         }
     }
+
+    // Validation de champ 'email'
+    if(empty($_POST["email"])){
+        $errors['email'] = "Le email ne doit pas etre vide!";
+    }else{
+        $email = $_POST["email"];
+        $taille = strlen($email);
+        var_dump($taille);
+        // verifier le format d'email est valid
+        if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+            $errors['email'] = "Email n'est pas valide (exemple@mail.com)!";
+        }elseif($taille < 10 || $taille > 60 ){
+            $errors['email'] = "L'email doit etre de taille >= 10 et <= 60!";
+        }
+    }
 }
 ?>
 
