@@ -78,7 +78,7 @@ if(isset($_POST["submit"])){
     <form action="modifier_profile.php" class="white" method="POST">
         <div>
             <label for="nom">Nom</label>
-            <input type="text" id="nom" name="nom">
+            <input type="text" id="nom" name="nom" value="<?php echo $nom;?>">
             <div class="red-text"> <?php echo $errors['nom']; ?></div>
         </div>
         <div>
