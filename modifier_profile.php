@@ -92,17 +92,17 @@ dans les formulaires.
         </div>
         <div>
             <label for="prenom">prenom</label>
-            <input type="text" id="prenom" name="prenom">
+            <input type="text" id="prenom" name="prenom" value="<?php echo htmlspecialchars($prenom);?>">
             <div class="red-text"> <?php echo $errors['prenom']; ?></div>
         </div>
         <div>
             <label for="email">Email</label>
-            <input type="text"id="email" name="email">
+            <input type="text"id="email" name="email" value="<?php echo htmlspecialchars($email);?>">
             <div class="red-text"> <?php echo $errors['email']; ?></div>
         </div>
         <div>
             <label for="tel">N° tele</label>
-            <input type="text" id="tel" name="tel">
+            <input type="text" id="tel" name="tel" value="<?php echo htmlspecialchars($tel);?>">
             <div class="red-text"> <?php echo $errors['tel']; ?></div>
         </div>
         <div class="center">
