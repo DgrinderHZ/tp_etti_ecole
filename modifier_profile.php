@@ -73,7 +73,16 @@ if(isset($_POST["submit"])){
     if (!array_filter($errors)) {
         // array_filter($errors) retourne true s'il y a des erreurs
         // retourne false s'il n'y a pas des erreurs
-        var_dump($errors);
+        
+        //SQL:  modifier les valeurs dans la base de donnée 
+        $password = md5($password);
+        $sql = $sql = "UPDATE users 
+                SET nom='$nom', prenom='$prenom', 
+                    tel='$tel', email='$email'
+                WHERE id='?'";
+
+       
+        
     }
 }
 ?>
