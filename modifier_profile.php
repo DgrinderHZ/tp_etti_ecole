@@ -81,6 +81,11 @@ if(isset($_POST["submit"])){
                 SET nom='$nom', prenom='$prenom', 
                     tel='$tel', email='$email'
                 WHERE id='$id'";
+        
+        // Executer la requete
+        if (!mysqli_query($conn, $sql)) {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
     }
 }
 ?>
