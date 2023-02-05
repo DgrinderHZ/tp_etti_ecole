@@ -87,8 +87,8 @@ if(isset($_POST["submit"])){
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
 
-        // redirection to la page d'accueil
-        header('Location: index.php');
+        // redirection to la page du profile
+        header('Location: profile.php');
     }
 }
 ?>

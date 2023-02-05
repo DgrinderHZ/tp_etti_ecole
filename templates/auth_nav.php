@@ -10,12 +10,12 @@
                  
                 <?php 
                 // Initialize the session
-session_start();
+                session_start();
                 // Check if the user is logged in, otherwise redirect to login page
                 if(!empty($_SESSION) && (isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] === true)): 
                  echo 'Hi, '. $_SESSION["username"];
                 ?>
-                <li><a href="../modifier_profile.php" class="btn brand z-depth-0">Modifier votre profile</a></li>
+                <li><a href="../profile.php" class="btn brand z-depth-0">Profile</a></li>
                 <li><a href="logout.php" class="btn brand z-depth-0">logout</a></li>             
                 <?php else: ?>
                     <li><a href="register.php" class="btn brand z-depth-0">register</a></li>
