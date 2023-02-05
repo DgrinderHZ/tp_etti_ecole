@@ -76,13 +76,11 @@ if(isset($_POST["submit"])){
         
         //SQL:  modifier les valeurs dans la base de donnée 
         $password = md5($password);
+        $id = $_SESSION["id"];
         $sql = $sql = "UPDATE users 
                 SET nom='$nom', prenom='$prenom', 
                     tel='$tel', email='$email'
-                WHERE id='?'";
-
-       
-        
+                WHERE id='$id'";
     }
 }
 ?>
