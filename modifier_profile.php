@@ -32,6 +32,19 @@ if(isset($_POST["submit"])){
             $errors['nom'] = "Le nom doit etre de taille >= 2 et <= 25!";
         }
     }
+
+    // Validation de champ 'prenom'
+    if(empty($_POST["prenom"])){
+        $errors['prenom'] = "Le prenom ne doit pas etre vide!";
+    }else{
+        $prenom = $_POST["prenom"];
+        $taille = strlen($prenom);
+        if(!preg_match("/^[a-zA-Z-' ]*$/",$prenom)){
+            $errors['prenom'] = "Veuillez utiliser des lettres et des espaces!";
+        }elseif($taille < 2 || $taille > 25 ){
+            $errors['prenom'] = "Le prenom doit etre de taille >= 2 et <= 25!";
+        }
+    }
 }
 ?>
 
@@ -47,14 +60,17 @@ if(isset($_POST["submit"])){
         <div>
             <label for="prenom">prenom</label>
             <input type="text" id="prenom" name="prenom">
+            <div class="red-text"> <?php echo $errors['prenom']; ?></div>
         </div>
         <div>
             <label for="email">Email</label>
             <input type="text"id="email" name="email">
+            <div class="red-text"> <?php echo $errors['email']; ?></div>
         </div>
         <div>
             <label for="tel">N° tele</label>
             <input type="text" id="tel" name="tel">
+            <div class="red-text"> <?php echo $errors['tel']; ?></div>
         </div>
         <div class="center">
             <input type="submit" value="Modifier" name="submit" class="btn brand z-depth-0">
