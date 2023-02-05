@@ -52,12 +52,21 @@ if(isset($_POST["submit"])){
     }else{
         $email = $_POST["email"];
         $taille = strlen($email);
-        var_dump($taille);
         // verifier le format d'email est valid
         if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
             $errors['email'] = "Email n'est pas valide (exemple@mail.com)!";
         }elseif($taille < 10 || $taille > 60 ){
             $errors['email'] = "L'email doit etre de taille >= 10 et <= 60!";
+        }
+    }
+
+     // Validation de champ 'tel'
+    if(empty($_POST["tel"])){
+        $errors['tel'] = "Le N° de telephone ne doit pas etre vide!";
+    }else{
+        $tel = $_POST["tel"];
+        if(!preg_match("/^(\+\d{3}|0)(\d{9})$/", $tel)){
+            $errors['tel'] = "le format du N° de telephone n'est pas valide!";
         }
     }
 }
