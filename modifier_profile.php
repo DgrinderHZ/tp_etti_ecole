@@ -30,7 +30,7 @@ if(isset($_POST["submit"])){
 <!-- SECTION FORMULAIRE -->
 <section class="container white-text">
     <h1 class="center">Modifier vos informations du profile</h1>
-    <form action="" class="white">
+    <form action="modifier_profile.php" class="white">
         <div>
             <label for="nom">Nom</label>
             <input type="text" id="nom" name="nom">
