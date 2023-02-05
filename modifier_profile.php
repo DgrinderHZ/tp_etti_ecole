@@ -2,6 +2,25 @@
 <?php require_once("templates/header.php"); ?>
 <?php require_once("templates/main_nav.php");?>
 
+<?php // PARTIE GESTION FORMULAIRE et BASE DE DONNEES
+
+// connection à la base de donnees
+require_once('config/db_connect.php');
+
+// Tableau des erreurs
+$errors = array("nom"=>'', "prenom"=>'', "tel"=>'', "email"=>'');
+
+// Variables d'aide
+$nom = '';
+$prenom = '';
+$email = '';
+$tel = '';
+
+// Validation, Gestion d'erreur, et sauvegarde des données
+if(isset($_POST["submit"])){
+    
+}
+?>
 
 <!-- SECTION FORMULAIRE -->
 <section class="container white-text">
