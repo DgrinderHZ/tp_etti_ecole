@@ -3,6 +3,6 @@
 
 ?>
 
-    hi 
+Modification de profile
     
 <?php require_once("templates/footer.php"); ?>
