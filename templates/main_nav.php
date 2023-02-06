@@ -22,6 +22,7 @@
                             <?php 
                             if($_SESSION['id_type_user']== 3): ?>
                                 <li><a href="users.php" class="btn brand z-depth-0">Users</a></li>
+                                <li><a href="ajouter_module.php" class="btn brand z-depth-0">+Modules</a></li>
                                 <?php endif; ?>
                         </li>
                         <li><a href="profile.php" class="btn brand z-depth-0">Profile</a></li>

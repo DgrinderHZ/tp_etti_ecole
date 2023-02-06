@@ -36,14 +36,14 @@ CREATE TABLE formations(
     id Integer NOT null PRIMARY KEY AUTO_INCREMENT,
     code VARCHAR(4) not null UNIQUE,
     titre varchar(150) not null,
-    descrption varchar(500) not null
+    description varchar(500) not null
 );
 
 CREATE TABLE modules(
     id Integer NOT null PRIMARY KEY AUTO_INCREMENT,
     code VARCHAR(4) not null UNIQUE,
     titre varchar(150) not null,
-    descrption varchar(500) not null
+    description varchar(500) not null
 );
 
 CREATE TABLE examens(
