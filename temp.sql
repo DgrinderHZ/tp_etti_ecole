@@ -52,10 +52,10 @@ CREATE TABLE examens(
 );
 
 CREATE TABLE enseigners(
-    id_formateur Integer NOT null,
+    id_user Integer NOT null,
     id_module Integer NOT null,
-    PRIMARY KEY (id_formateur, id_module),
-    FOREIGN KEY (id_formateur) REFERENCES formateurs(id),
+    PRIMARY KEY (id_user, id_module),
+    FOREIGN KEY (id_user) REFERENCES users(id),
     FOREIGN KEY (id_module) REFERENCES modules(id)
 );
 
@@ -68,11 +68,11 @@ CREATE TABLE contenirs(
 );
 
 CREATE TABLE passers(
-    id_etudiant Integer NOT null,
+    id_user Integer NOT null,
     id_module Integer NOT null,
     id_examen Integer not null,
-    PRIMARY KEY (id_etudiant, id_module, id_examen),
-    FOREIGN KEY (id_etudiant) REFERENCES etudiants(id),
+    PRIMARY KEY (id_user, id_module, id_examen),
+    FOREIGN KEY (id_user) REFERENCES users(id),
     FOREIGN KEY (id_module) REFERENCES modules(id),
     FOREIGN KEY (id_examen) REFERENCES examens(id)
 );

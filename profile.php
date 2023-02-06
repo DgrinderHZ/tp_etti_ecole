@@ -29,17 +29,17 @@ include("templates/main_nav.php");
 <div class="container center">
     <h2>Details</h2>
     <?php if ($user): ?>
-       <h4> 
+    <h4>
         <?php 
             echo htmlspecialchars($user['nom']) . ' ' . htmlspecialchars($user['prenom']);
         ?>
-       </h4>
-       <p>Né le: <?php echo htmlspecialchars($user['tel']); ?></p>
-       <p>Email: <?php echo htmlspecialchars($user['email']); ?></p>
-        <!-- UPDATE :  mise à jour -->
-        <p><a href="modifier_profile.php">Modifier votre profile</a></p>
-       <?php else: ?>
-        <p>no data</p>
+    </h4>
+    <p>Tel: <?php echo htmlspecialchars($user['tel']); ?></p>
+    <p>Email: <?php echo htmlspecialchars($user['email']); ?></p>
+    <!-- UPDATE :  mise à jour -->
+    <p><a href="modifier_profile.php">Modifier votre profile</a></p>
+    <?php else: ?>
+    <p>no data</p>
     <?php endif; ?>
 </div>
 
