@@ -1,15 +1,38 @@
-<?php
-require_once('config/db_connect.php');
- include("templates/header.php"); 
- include("templates/main_nav.php"); 
-require_once('auth/login_required.php');
+<?php // insertion des pages templates ?>
+<?php require_once("templates/header.php"); ?>
+<?php require_once("templates/main_nav.php");?>
 
+<?php // PARTIE GESTION FORMULAIRE et BASE DE DONNEES
+
+// connection à la base de donnees
+require_once('config/db_connect.php');
+$id ='';
+// Recuperer les donnees de POST
+ if (isset($_POST['id'])) {
+    $id = mysqli_real_escape_string($conn, $_POST['id']);
+
+    // enregistrer la requete dans une variable
+    $sql = "SELECT * FROM modules WHERE id = '$id'";
+
+    // executer la requetes
+    $result = mysqli_query($conn, $sql);
+
+    // Transformer en un tableau associative
+    $module = mysqli_fetch_assoc($result);
+
+    // Liberer les resultats
+    mysqli_free_result($result);
+
+    $code = $module['code'] ;
+    $titre = $module['titre'];
+    $description = $module['_description'];
+ }else{
+    $code =  '';
+    $titre = '';
+    $description = '';
+ }
 
 $errors = array("code"=>'', "titre"=>'', "description"=>'');
-$code = '';
-$titre = '';
-$description = '';
-
 
 if(isset($_POST["submit"])){
    //var_dump($_POST);
@@ -38,25 +61,31 @@ if(isset($_POST["submit"])){
    
 
     if (!array_filter($errors)) {
-        $sql = "INSERT INTO modules(code, titre, _description)
-                VALUES ('$code', '$titre', '$description')";
 
-        if ($conn->query($sql) === TRUE) {
-            echo "New record created successfully";
-        } else {
+        $sql = "UPDATE modules 
+                SET code='$code', titre='$titre', 
+                    _description='$description'
+                WHERE id='$id'";
+        
+        // Executer la requete
+        if (!mysqli_query($conn, $sql)) {
             echo "Error: " . $sql . "<br>" . $conn->error;
+        }else{
+            echo "error";
         }
-        // redirect
-        header('Location: index.php');
+
+        // redirection to la page du profile
+         header('Location: modules.php');
     }
 }
+
 ?>
 
 
-
+<!-- SECTION FORMULAIRE -->
 <section class="container grey-text">
     <h2 class="center">Ajouter un module</h2>
-    <form action="ajouter_module.php" class="white" method="POST">
+    <form action="update_module.php" class="white" method="POST">
         <div>
             <label for="code">Code:</label>
             <input type="text" name="code" id="code" value="<?php echo htmlspecialchars($code);?>">
@@ -72,10 +101,13 @@ if(isset($_POST["submit"])){
             <input type="text" name="description" id="description" value="<?php echo htmlspecialchars($description);?>">
             <div class="red-text"> <?php echo $errors['description']; ?></div>
         </div>
+         <input hidden type="text" name="id" value="<?php echo htmlspecialchars($id); ?>">
         
         <div class="center">
             <input type="submit" value="submit" name="submit" class="btn brand z-depth-0">
         </div>
     </form>
 </section>
-<?php include("templates/footer.php"); ?>
+
+<?php // insertion des pages templates ?>
+<?php require_once("templates/footer.php"); ?>
